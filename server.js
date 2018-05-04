@@ -46,7 +46,8 @@ app.post('/blog/create',restrict,(req,res)=>{
         created:Date.now(),
         lastModified:Date.now()
     });
-    var allTags=(req.body.allTags!=undefined && req.body.allTags!=null)?req.body.allTags.split(','):'';
+    var _body=req.body;
+    var allTags=(_body.allTags!=undefined && _body.allTags!=null)?_body.allTags.split(','):'';
     blog.tags=allTags;
 
     authorInfo={Name:req.body.authorName,email:req.body.email,dob:req.body.dateOfBirth};
